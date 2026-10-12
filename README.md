@@ -56,26 +56,43 @@ This project answers a practical SOC question: **has a monitored device communic
 ## 🧭 Pipeline Architecture
 
 ```mermaid
-flowchart TD
-    API["URLhaus official API"] --> COL["Python collector"]
-    TIMER["systemd timer: every 30 minutes"] --> COL
-    COL --> VAL["Validate and normalize URLs"]
-    VAL --> DB["SQLite: indicators and immutable outbox"]
-    DB --> SEND["Python delivery worker"]
-    SEND --> HEC["Certificate-verified local HTTPS HEC"]
-    SEND -->|"failure: keep pending"| DB
-    HEC --> TI["ti_urlhaus: indicator revisions"]
-    HEC --> HEALTH["ti_health: collection snapshots"]
-    TI --> REFRESH["Scheduled SPL: latest revision and active expiry"]
-    REFRESH --> LOOKUP["Active IOC lookup"]
-    GEN["Synthetic DNS and proxy generator"] --> SYNDB["Separate SQLite outbox"]
-    SYNDB --> SYNHEC["Local HEC: synthetic token"]
-    SYNHEC --> ACT["ti_synthetic: labeled activity"]
-    LOOKUP --> CORR["Exact URL and hostname correlation"]
-    ACT --> CORR
-    CORR --> DASH["Investigation dashboard"]
-    HEALTH --> DASH
-    LOOKUP --> DASH
+flowchart LR
+    subgraph COL["1. Collection"]
+        direction TB
+        API["URLhaus official API"] --> PY["Python collector"]
+        TIMER["systemd timer"] --> PY
+        PY --> VAL["Validate and normalize"]
+    end
+
+    subgraph STORE["2. Durable storage"]
+        direction TB
+        DB["SQLite indicators"] --> OUT["Immutable revision outbox"]
+        OUT --> SEND["Python delivery worker"]
+        SEND -->|"failure: keep pending"| OUT
+    end
+
+    subgraph SIEM["3. Splunk ingestion"]
+        direction TB
+        HEC["Local HTTPS HEC"] --> TI["ti_urlhaus: intelligence"]
+        HEC --> HEALTH["ti_health: collector health"]
+    end
+
+    subgraph INVEST["4. Correlation and investigation"]
+        direction TB
+        REFRESH["Scheduled active IOC lookup"] --> MATCH["Exact URL and hostname matches"]
+        MATCH --> DASH["Investigation dashboard"]
+    end
+
+    subgraph SYN["Synthetic test activity"]
+        direction TB
+        GEN["Python DNS and proxy fixtures"] --> SYNOUT["Separate SQLite outbox and local HEC"]
+        SYNOUT --> ACT["ti_synthetic: labeled activity"]
+    end
+
+    COL --> STORE
+    STORE --> SIEM
+    SIEM -->|"intelligence and health"| INVEST
+    SYN -->|"activity for correlation"| INVEST
 ```
 
 The operational flow is **collect → validate → persist → deliver → correlate → investigate**. SQLite stores retry state; Python performs retries. Intelligence, health and synthetic activity remain distinct in Splunk.
