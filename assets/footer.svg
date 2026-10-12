@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="80" viewBox="0 0 1000 80" role="img" aria-label="Decorative wave footer">
+<defs><linearGradient id="gradient"><stop stop-color="#9792a5"/><stop offset="1" stop-color="#b07f7f"/></linearGradient></defs>
+<path d="M0 34Q245 8 503 31T1000 30V80H0Z" fill="#706b78" opacity=".66"/>
+<path d="M0 42Q245 16 503 36T1000 31V80H0Z" fill="url(#gradient)"/>
+</svg>
