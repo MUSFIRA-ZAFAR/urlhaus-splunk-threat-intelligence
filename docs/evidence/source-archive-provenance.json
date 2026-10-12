@@ -1,0 +1,30 @@
+{
+  "source_archive": "ti-lab-review.tgz",
+  "source_sha256": "6fc7b69eb10e2d9596175016bfabd2c27cb0a6305e485e187e1b551743efa519",
+  "unchanged_files": {
+    "requirements.lock.txt": "ba47fed21ee3432c42d6db6c7de90dc1c47aad05f66b0bfba3f6a9a77b09c762",
+    ".gitignore": "ee5c39da9f1bfa6016e73ce7bc025104c9901316338fe85836efd49e6e565f26",
+    "requirements.txt": "0d0d2938e5443f318fc97363f42cffe3309df1b718cc2bf713263a68cb7bbee5",
+    "src/collector.py": "baec83786c57cc1bc588dbec963007c4a1a5145ee1bfc21b7bca789814e411e7",
+    "src/health.py": "5fefeec4623648c0691d4cdf3754a45f014b712fed4ad43a9cf72ee5d3670d27",
+    "src/app_logging.py": "abaedb744dce42ade535fe56f623d580ec6acd07acac0593b0938af19d9c060a",
+    "src/normalize.py": "a2b34d56c050a4c8b028de935a8a67b87aa97dd938b4e2a5ef6adb737da4e7ec",
+    "src/records.py": "89d8df9a5623f0189290d698253e1b7c478f07798d4347f56627c3cd353e8d1b",
+    "src/generate_synthetic.py": "3069f86366f0a001e79601a3a000ac2c6f8a9bb5ada12fa22114fdb4eeb22c30",
+    "src/feed.py": "4f99461df096d4b2ac7c8b5913f7bb5ee2e657436f10dfdc35dd58a39e3a3017",
+    "src/storage.py": "b0d50b3565d36da8bd15157e63f3e1b82582d7fe95a9fb77a7a9c9941638863c",
+    "src/delivery.py": "0da0e5500d42d673c592b7815aaf47653015e461b0544d81b92a5ba3c88deba2",
+    "src/send_synthetic.py": "592b6e56be7a8abed0b6e9c110db111a89b53ab75ffef4a9c48b4e0b2e1407df",
+    "src/cooldown.py": "8a2c34ba76085200fb9cd64c45a19df98a22e5622290611fcc943c33b2868df9",
+    "tests/test_normalize.py": "ff8a3b904979aa53bcd6ecbc1241f8b40ac7e6b7d736756b51e3d8ef6315a2f9",
+    "tests/test_delivery_cooldown.py": "631857bc822f5c95adaf51d6cf7363d6d2c686d0349dd746d341ce97b51ce248",
+    "tests/test_feed.py": "26bd0e0e41d3b676ee95fd858d2a840215c143bd6d365057e8fa882829c1adb3",
+    "config/schema.sql": "87a46e62bb69c011501f3fcf3b39f91ecaa7e4adba9fdec27376bc1d0dda6b24",
+    "config/lab.json": "c8839f0698ef4b74b076b648cbcfe96bf08aee4e1ee9bb5bae20e95518848482",
+    "docs/evidence/TI-19-tests.txt": "4ba31734bd8ba6326f642c3e79ce02d478b2b4469f66259a614d888bbc1b640e",
+    "docs/evidence/TI-24-tests.txt": "5ead0e02f13010630fd7227217ec6802cff51e9794ce11f5490a42fafa576c9b",
+    "docs/evidence/TI-08-normalization.txt": "ef7b758144f18b6131b1e9a9671691c91d31bc11bdf73d1f8526db5a801f74cf",
+    "config/systemd/ti-collector.service": "aee31189d4f1ceef49dc449acbae11ac0c5161fb865c71680d8e0de15d519c2a",
+    "config/systemd/ti-collector.timer": "7ce96d040a700467733e7585509a72e15d89b9c8116dd2ab5d60ede2344223b8"
+  }
+}

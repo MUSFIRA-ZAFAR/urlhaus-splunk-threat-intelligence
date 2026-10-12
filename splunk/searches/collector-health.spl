@@ -1,0 +1,5 @@
+index=ti_health source=urlhaus_collector event_kind=collector_health earliest=0
+| stats max(_time) AS last_heartbeat max(last_successful_collection) AS last_success latest(collection_status) AS collection_status latest(fetched) AS fetched latest(rejected) AS rejected latest(pending_before_delivery) AS pending_before_delivery latest(failed_pending_before_delivery) AS failed_pending_before_delivery
+| eval heartbeat_age_minutes=round((now()-last_heartbeat)/60,1),feed_age_minutes=round((now()-last_success)/60,1)
+| eval health=case(isnull(last_heartbeat),"NO_HEALTH_DATA",heartbeat_age_minutes>45,"STALE_HEARTBEAT",isnull(last_success) OR feed_age_minutes>60,"STALE_FEED",collection_status!="success" OR rejected>0 OR failed_pending_before_delivery>0,"CHECK_ERRORS",true(),"HEALTHY")
+| table health collection_status heartbeat_age_minutes feed_age_minutes fetched rejected pending_before_delivery failed_pending_before_delivery

@@ -1,0 +1,16 @@
+[Unit]
+Description=URLhaus threat intelligence collector
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/ti-urlhaus-lab
+ExecStart=/home/ubuntu/ti-urlhaus-lab/.venv/bin/python /home/ubuntu/ti-urlhaus-lab/src/collector.py
+Environment=PYTHONUNBUFFERED=1
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+TimeoutStartSec=180

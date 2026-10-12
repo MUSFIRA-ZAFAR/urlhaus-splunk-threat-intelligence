@@ -1,0 +1,9 @@
+index=ti_urlhaus source=urlhaus_collector event_kind=indicator earliest=0
+| eval revision=tonumber(revision), expires_at=tonumber(expires_at)
+| sort 0 -num(revision) -num(collected_at)
+| dedup ioc_id
+| where expires_at>now()
+| spath input=_raw path=source output=intel_source
+| eval lookup_refreshed_at=now()
+| table ioc_id intel_source source_record_id revision original_url normalized_url hostname provider_status provider_date_added collected_at expires_at lookup_refreshed_at
+| outputlookup append=false create_empty=true ti_active_urls.csv

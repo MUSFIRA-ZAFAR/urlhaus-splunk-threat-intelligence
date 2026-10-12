@@ -1,0 +1,13 @@
+index=ti_synthetic source=ti_synthetic_generator earliest=0
+run_id="17c2c889-a190-452d-b40d-59cca95bdcb5" event_kind=activity
+| dedup event_id
+| lookup ti_active_urls normalized_url OUTPUT ioc_id AS exact_ioc expires_at AS exact_expiry
+| lookup ti_active_urls hostname OUTPUT expires_at AS host_expiries
+| eval intelligence_present=if(isnotnull(exact_ioc) OR isnotnull(host_expiries),"yes","no")
+| eval exact_expiry=if(isnotnull(exact_expiry),now()-60,null()),host_expiries=if(isnotnull(host_expiries),now()-60,null())
+| eval active_host_expiries=mvfilter(tonumber(host_expiries)>now())
+| eval actual_match=case(activity_type="proxy" AND isnotnull(exact_ioc) AND tonumber(exact_expiry)>now(),"exact_url",mvcount(active_host_expiries)>0,"hostname_only",true(),"no_match")
+| eval expected="no_match",test_mode="SIMULATED_EXPIRY"
+| eval result=if(actual_match=expected,"PASS","FAIL")
+| table test_case test_mode intelligence_present expected actual_match result
+| sort test_case

@@ -1,0 +1,19 @@
+test_cooldown_and_recovery (test_delivery_cooldown.DeliveryCooldownTests.test_cooldown_and_recovery) ... ok
+test_authentication_failure (test_feed.FeedFailureTests.test_authentication_failure) ... ok
+test_malformed_json (test_feed.FeedFailureTests.test_malformed_json) ... ok
+test_rate_limit (test_feed.FeedFailureTests.test_rate_limit) ... ok
+test_timeout (test_feed.FeedFailureTests.test_timeout) ... ok
+test_case_sensitive_path_and_query (test_normalize.NormalizationTests.test_case_sensitive_path_and_query) ... ok
+test_fragment_policy (test_normalize.NormalizationTests.test_fragment_policy) ... ok
+test_ip_hosts (test_normalize.NormalizationTests.test_ip_hosts) ... ok
+test_preserve_original_and_suffix (test_normalize.NormalizationTests.test_preserve_original_and_suffix) ... ok
+test_reject_invalid_or_unsupported (test_normalize.NormalizationTests.test_reject_invalid_or_unsupported) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.037s
+
+OK
+Delivery paused: HTTP 429 | records remain pending
+HEC delivery deferred: 110s remaining
+Delivery paused: HTTP 503 | records remain pending
+HEC delivery deferred: 110s remaining

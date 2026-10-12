@@ -1,0 +1,6 @@
+| inputlookup ti_active_urls.csv
+| eval active_now=if(tonumber(expires_at)>now(),1,0)
+| stats count AS lookup_rows sum(active_now) AS active_rows min(lookup_refreshed_at) AS oldest_refresh dc(lookup_refreshed_at) AS refresh_versions
+| eval active_rows=coalesce(active_rows,0),expired_rows=lookup_rows-active_rows,refresh_age_minutes=round((now()-oldest_refresh)/60,1)
+| eval lookup_health=case(lookup_rows=0,"EMPTY_LOOKUP",isnull(oldest_refresh),"UNKNOWN_REFRESH",refresh_versions!=1,"CHECK_REFRESH_TIMESTAMPS",refresh_age_minutes>10,"STALE_LOOKUP",true(),"FRESH")
+| table lookup_health lookup_rows active_rows expired_rows refresh_age_minutes

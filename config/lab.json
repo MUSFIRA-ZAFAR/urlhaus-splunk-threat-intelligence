@@ -1,0 +1,14 @@
+{
+  "urlhaus_endpoint": "https://urlhaus-api.abuse.ch/v1/urls/recent/limit/3/",
+  "urlhaus_key_file": "~/.config/ti-lab/urlhaus.key",
+  "database_file": "~/.local/state/ti-lab/indicators.sqlite3",
+  "hec_endpoint": "https://127.0.0.1:8088/services/collector/event",
+  "hec_token_file": "~/.config/ti-lab/hec.token",
+  "hec_ca_file": "~/.config/ti-lab/hec.crt",
+  "ioc_index": "ti_urlhaus",
+  "health_index": "ti_health",
+  "connect_timeout_seconds": 5,
+  "read_timeout_seconds": 20,
+  "ioc_ttl_hours": 24,
+  "max_delivery_attempts_per_run": 3
+}

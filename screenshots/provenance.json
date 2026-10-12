@@ -1,0 +1,128 @@
+[
+  {
+    "file": "01-hec-tls-verification.png",
+    "step": "TLS",
+    "source_filename": "image(20261010-163540).png",
+    "source_sha256": "16308cdda967353c165179426acf68fa4a028be96127ad4bab48104f3f6d0257",
+    "output_sha256": "16308cdda967353c165179426acf68fa4a028be96127ad4bab48104f3f6d0257",
+    "crop": "none; supplied framing retained",
+    "caption": "Certificate trust and IP validation returned Verification: OK."
+  },
+  {
+    "file": "02-duplicate-import.png",
+    "step": "TI11",
+    "source_filename": "image(20261011-111113).png",
+    "source_sha256": "a1ac48f1c76a1f733d6bd107f67b6d8ae5faefac06d0c0ec767d2c6195075378",
+    "output_sha256": "a1ac48f1c76a1f733d6bd107f67b6d8ae5faefac06d0c0ec767d2c6195075378",
+    "crop": "none; supplied framing retained",
+    "caption": "Identical reimport: three inserts, three duplicates, revision 1 retained."
+  },
+  {
+    "file": "03-revision-history.png",
+    "step": "TI16",
+    "source_filename": "image(20261011-121058).png",
+    "source_sha256": "bc86ff5704f2e1c539aa6994c9f184340fbec68c96dccaa04daf43090efb02cc",
+    "output_sha256": "bc86ff5704f2e1c539aa6994c9f184340fbec68c96dccaa04daf43090efb02cc",
+    "crop": "none; supplied framing retained",
+    "caption": "Controlled temporary DB update: revision 2, both payloads retained."
+  },
+  {
+    "file": "04-delivery-pending.png",
+    "step": "TI14",
+    "source_filename": "image(20261011-120111).png",
+    "source_sha256": "0007e3d3026deea8e583fdbe0366591d8ccff6b347dba3f62a0204bedf569471",
+    "output_sha256": "0007e3d3026deea8e583fdbe0366591d8ccff6b347dba3f62a0204bedf569471",
+    "crop": "none; supplied framing retained",
+    "caption": "Intentionally unreachable local port 1; pending after three attempts."
+  },
+  {
+    "file": "05-delivery-recovered.png",
+    "step": "TI15",
+    "source_filename": "image(20261011-120320).png",
+    "source_sha256": "4c94aea7e3677eaaea0b59e35a92f74c8c1261702f967a436f6e29d707c0d18b",
+    "output_sha256": "4c94aea7e3677eaaea0b59e35a92f74c8c1261702f967a436f6e29d707c0d18b",
+    "crop": "none; supplied framing retained",
+    "caption": "Same test event accepted on attempt 4, error cleared."
+  },
+  {
+    "file": "06-recovery-searchable.png",
+    "step": "TI15",
+    "source_filename": "image(20261011-120352).png",
+    "source_sha256": "659b6965d3336466792cbfc83530f6e589041c6cae19eee78205c8691d734a8a",
+    "output_sha256": "659b6965d3336466792cbfc83530f6e589041c6cae19eee78205c8691d734a8a",
+    "crop": "none; supplied framing retained",
+    "caption": "Recovered synthetic event searchable in ti_health."
+  },
+  {
+    "file": "07-unit-tests.png",
+    "step": "TI24",
+    "source_filename": "image(20261011-133935).png",
+    "source_sha256": "7d4a739f8be968561793606ddb32978ef991d080ae9fd624c518d8f6dc7f538b",
+    "output_sha256": "7d4a739f8be968561793606ddb32978ef991d080ae9fd624c518d8f6dc7f538b",
+    "crop": "none; supplied framing retained",
+    "caption": "Ten original tests PASS; external HTTP failures mocked."
+  },
+  {
+    "file": "08-correlation-six-cases.png",
+    "step": "TI48",
+    "source_filename": "image(20261011-155755).png",
+    "source_sha256": "ad67e3d9820199005867d06c9cc5ade38d545db742f6f6dfd4a8ab629ae52415",
+    "output_sha256": "39b5013e19453fd67bac1f98fa6c365b9840b908d683a35bd6fa062658ba9179",
+    "crop": "1750x690+0+45",
+    "caption": "Six synthetic cases, all expected classifications PASS."
+  },
+  {
+    "file": "09-simulated-expiry.png",
+    "step": "TI49",
+    "source_filename": "image(20261011-161332).png",
+    "source_sha256": "148c8b7c9e1184435b1e0dd1a85c72df4f8bbfa7e0cf478a24470db0b76b43a0",
+    "output_sha256": "148c8b7c9e1184435b1e0dd1a85c72df4f8bbfa7e0cf478a24470db0b76b43a0",
+    "crop": "none; supplied framing retained",
+    "caption": "Search-only SIMULATED_EXPIRY: all six no_match, PASS."
+  },
+  {
+    "file": "10-investigation-dashboard.png",
+    "step": "TI70",
+    "source_filename": "image(20261011-182901).png",
+    "source_sha256": "634c9150cd681b0da3d2b30a4b4c0b609c99087df1aba520029ea943d9b03707",
+    "output_sha256": "2f7b4a362c1537d1716ddcffef360823b1ad1bbaf5365e18534f6423f12cce61",
+    "crop": "1765x640+15+45",
+    "caption": "Four-panel dashboard: health, correlation, exact context and fresh lookup."
+  },
+  {
+    "file": "11-free-license.png",
+    "step": "TI61",
+    "source_filename": "image(20261011-175535).png",
+    "source_sha256": "92461874a6fa7cb951a640f8b1e1ff05c5f26d8c574eda8c460cfe1271d0d581",
+    "output_sha256": "92461874a6fa7cb951a640f8b1e1ff05c5f26d8c574eda8c460cfe1271d0d581",
+    "crop": "none; supplied framing retained",
+    "caption": "Free license group visible; displayed date is not represented as actual expiry."
+  },
+  {
+    "file": "12-reboot-services.png",
+    "step": "TI75",
+    "source_filename": "image(20261011-190351).png",
+    "source_sha256": "05067260db54b97908b4cbb589637b729dd0279bebbdd811710ad5af53b8e709",
+    "output_sha256": "eb61d2aa7a5f15a054ae72d1334c94cc5f4a801e02799877df7ee07db59869cd",
+    "crop": "1200x310+45+22",
+    "caption": "New boot, enabled/active services and loopback ports."
+  },
+  {
+    "file": "13-post-reboot-collector.png",
+    "step": "TI76",
+    "source_filename": "image(20261011-190450).png",
+    "source_sha256": "8991276d184b45330d0d0007a01750730b4e72e5c98bafc8d69662f30f90a211",
+    "output_sha256": "8991276d184b45330d0d0007a01750730b4e72e5c98bafc8d69662f30f90a211",
+    "crop": "none; supplied framing retained",
+    "caption": "Automatic collection: 3 updated, 4 accepted; no pending group."
+  },
+  {
+    "file": "14-post-reboot-search.png",
+    "step": "TI77",
+    "source_filename": "image(20261011-191320).png",
+    "source_sha256": "ae318d77eb0d0e0c98e23ebbe936bda5abf017835b0e77083117e6d548dbaecf",
+    "output_sha256": "b08f857def43548743c8375fba388bb9755824f90e14fa4caba5e9c72d469172",
+    "crop": "1780x415+8+5",
+    "caption": "Four post-reboot indexed events, copies=1 per event ID."
+  }
+]

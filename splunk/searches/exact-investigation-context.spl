@@ -1,0 +1,7 @@
+index=ti_synthetic source=ti_synthetic_generator earliest=0
+run_id="17c2c889-a190-452d-b40d-59cca95bdcb5" event_kind=activity activity_type=proxy
+| dedup event_id
+| lookup ti_active_urls normalized_url OUTPUT ioc_id intel_source source_record_id provider_status original_url collected_at expires_at
+| where isnotnull(ioc_id) AND tonumber(expires_at)>now()
+| eval reported_url=original_url,collected_utc=strftime(tonumber(collected_at),"%Y-%m-%d %H:%M:%S %Z"),expires_utc=strftime(tonumber(expires_at),"%Y-%m-%d %H:%M:%S %Z"),assessment="Exact URL match — investigation required"
+| table _time device synthetic observed_url reported_url intel_source source_record_id provider_status collected_utc expires_utc assessment
